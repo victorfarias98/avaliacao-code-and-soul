@@ -1,0 +1,28 @@
+{
+  "name": "avaliacao-code-and-soul",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Avaliação Code and Soul</h1>",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorfarias98/avaliacao-code-and-soul.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorfarias98/avaliacao-code-and-soul/issues"
+  },
+  "homepage": "https://github.com/victorfarias98/avaliacao-code-and-soul#readme",
+  "dependencies": {
+    "@types/express": "^4.17.11",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4",
+    "uuid": "^8.3.2"
+  }
+}
