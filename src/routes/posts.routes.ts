@@ -1,12 +1,11 @@
 
 import { Router } from 'express';
-import PostRepository  from '../repositories/implementations/PostRepository';
 import { createPostController } from '../useCases/Posts/CreatePosts';
+import { listPostController } from '../useCases/Posts/ListPosts';
 const postRouter = Router();
 
 postRouter.get('/', async (req, res) => {
-    const posts = await PostRepository.list();
-    res.json(posts);
+    listPostController.handle(req, res);
 });
 postRouter.post('/', async (req, res) => {
     createPostController.handle(req, res);

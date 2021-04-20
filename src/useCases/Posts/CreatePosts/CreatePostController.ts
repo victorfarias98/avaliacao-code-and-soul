@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 
-import { CreatePostUseCases } from './CreatePostUseCases';
+import { CreatePostUseCase } from './CreatePostUseCase';
 
 export class CreatePostController {
-    constructor(private createPostUseCase: CreatePostUseCases) {}
+    constructor(private createPostUseCase: CreatePostUseCase) {}
     handle(request: Request, response: Response): Response {
         const { title, content } = request.body;
         this.createPostUseCase.execute({ title, content });
