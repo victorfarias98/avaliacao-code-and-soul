@@ -4,7 +4,11 @@ class PostRepository implements IPostRepository{
     private static INSTANCE: PostRepository;
     private constructor() {}
     create({ title, content }: ICreatePostDTO): void {
-        throw new Error("Method not implemented.");
+        Post.create({ title, content }, function (err, small) {
+            if (err){
+                throw new Error("Erro ao cadastrar este post" + err);
+            };
+        });
     }
     list() {
         return Post.find({}).lean();

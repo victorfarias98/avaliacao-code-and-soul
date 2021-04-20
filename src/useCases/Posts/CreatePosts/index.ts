@@ -1,4 +1,4 @@
-import  PostRepository  from '../../repositories/implementations/PostRepository';
+import  PostRepository  from '../../../repositories/implementations/PostRepository';
 import { CreatePostController } from './CreatePostController';
 import { CreatePostUseCases } from './CreatePostUseCases';
 
