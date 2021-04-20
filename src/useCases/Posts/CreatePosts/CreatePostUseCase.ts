@@ -5,7 +5,7 @@ interface IRequest {
     content: string;
 }
 
-export class CreatePostUseCases {
+export class CreatePostUseCase {
     constructor(private postRepository: IPostRepository) {}
     execute({ title, content }: IRequest): void {
         this.postRepository.create({ title, content });

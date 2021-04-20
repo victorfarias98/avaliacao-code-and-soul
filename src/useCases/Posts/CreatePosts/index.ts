@@ -1,8 +1,8 @@
 import  PostRepository  from '../../../repositories/implementations/PostRepository';
 import { CreatePostController } from './CreatePostController';
-import { CreatePostUseCases } from './CreatePostUseCases';
+import { CreatePostUseCase } from './CreatePostUseCase';
 
-const createPostUseCase = new CreatePostUseCases(PostRepository);
+const createPostUseCase = new CreatePostUseCase(PostRepository);
 const createPostController = new CreatePostController(createPostUseCase);
 
 export { createPostController };
