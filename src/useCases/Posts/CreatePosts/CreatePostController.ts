@@ -6,7 +6,7 @@ export class CreatePostController {
     constructor(private createPostUseCase: CreatePostUseCase) {}
     handle(request: Request, response: Response): Response {
         const { title, content } = request.body;
-        this.createPostUseCase.execute({ title, content });
-        return response.status(201).send();
+        const post = this.createPostUseCase.execute({ title, content });
+        return response.status(201).json(post);
     }
 }
