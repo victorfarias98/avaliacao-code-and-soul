@@ -13,9 +13,7 @@ interface IUpdatePostDTO {
     create({title, content} : ICreatePostDTO) : void  ;
     update({ id, title,content} : IUpdatePostDTO );
     list();
-    delete(id: string): void;
-    findById(id: string);
-    findByTitle(title: string);
+    delete(id: string);
 }
 
 export { ICreatePostDTO, IUpdatePostDTO, IPostRepository }

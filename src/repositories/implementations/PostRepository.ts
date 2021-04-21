@@ -23,14 +23,13 @@ class PostRepository implements IPostRepository{
         }});
         return post['_doc'];
     }
-    delete(id: string): void {
-        throw new Error("Method not implemented.");
-    }
-    findById(id: string) {
-        throw new Error("Method not implemented.");
-    }
-    findByTitle(title: string){
-        throw new Error("Method not implemented.");
+    async delete(id: string){
+        await Post.findOneAndDelete({_id: id});
+        const yetExistPost = Post.findOne({_id: id});
+        if(yetExistPost){
+            return false;
+        }
+        return true;
     }
     public static getInstance(): PostRepository {
         if (!PostRepository.INSTANCE) {
