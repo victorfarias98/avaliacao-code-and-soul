@@ -4,10 +4,11 @@ class PostRepository implements IPostRepository{
     private static INSTANCE: PostRepository;
     private constructor() {}
     async create({ title, content }: ICreatePostDTO){
-        const post = await Post.create({ title, content }, function (err, small) {
+        const post = await Post.create({ title, content }, function (err, doc) {
             if (err){
                 throw new Error("Erro ao cadastrar este post " + err);
             };
+            return doc['_doc'];
         });
         return post;
     }
@@ -19,17 +20,17 @@ class PostRepository implements IPostRepository{
             if (err){
                 return new Error("Erro ao atualizar este post " + err);
             }
-            return doc;
+            return doc['_doc'];
         }});
-        return post['_doc'];
+        return post;
     }
     async delete(id: string){
         await Post.findOneAndDelete({_id: id});
         const yetExistPost = Post.findOne({_id: id});
         if(yetExistPost){
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
     public static getInstance(): PostRepository {
         if (!PostRepository.INSTANCE) {

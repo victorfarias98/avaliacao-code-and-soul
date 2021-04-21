@@ -10,7 +10,7 @@ interface IUpdatePostDTO {
     content: string;
 }
  interface IPostRepository {
-    create({title, content} : ICreatePostDTO) : void  ;
+    create({title, content} : ICreatePostDTO)  ;
     update({ id, title,content} : IUpdatePostDTO );
     list();
     delete(id: string);
