@@ -3,18 +3,25 @@ import { IPostRepository, ICreatePostDTO, IUpdatePostDTO } from "../interfaces/I
 class PostRepository implements IPostRepository{
     private static INSTANCE: PostRepository;
     private constructor() {}
-    create({ title, content }: ICreatePostDTO): void {
-        Post.create({ title, content }, function (err, small) {
+    async create({ title, content }: ICreatePostDTO){
+        const post = await Post.create({ title, content }, function (err, small) {
             if (err){
-                throw new Error("Erro ao cadastrar este post" + err);
+                throw new Error("Erro ao cadastrar este post " + err);
             };
         });
+        return post;
     }
     list() {
         return Post.find({}).lean();
     }
-    update({ id, title, content }: IUpdatePostDTO) {
-        throw new Error("Method not implemented.");
+    async update({ id, title, content }: IUpdatePostDTO) {
+        const post = await Post.findOneAndUpdate({ _id : id }, { $set : { title: title, content: content},  function (err, doc)  {
+            if (err){
+                return new Error("Erro ao atualizar este post " + err);
+            }
+            return doc;
+        }});
+        return post['_doc'];
     }
     delete(id: string): void {
         throw new Error("Method not implemented.");
@@ -22,7 +29,7 @@ class PostRepository implements IPostRepository{
     findById(id: string) {
         throw new Error("Method not implemented.");
     }
-    findByTitle(title: string) {
+    findByTitle(title: string){
         throw new Error("Method not implemented.");
     }
     public static getInstance(): PostRepository {
