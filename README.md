@@ -71,7 +71,15 @@ A rota de atualização de posts necessita do seguintes parâmetros de rota atra
 
 ### Dúvidas ❓
 
-Para dúvidas estou disponível nesses canais abaixo:
+
+1. O que levou você a escolher determinada tecnologia e suas vantagens?
+    A interação mais comum e simples do MongoDB ( banco de dados solicitados no teste) é com o NodeJS, por isso foi minha escolha pra esse desafio, ainda tive a liberdade de utilizar o TypeScript para compor uma aplicação mais escalável e mais cooperável em equipe.
+2. Quais padrões de projeto você aplicou para resolver problemas mais comuns?
+    Utilizei o padrão SOLID para os problemas com modelos, casos de uso ( UseCases), controllers e por ser um dos princiáis padrões do mercado. Ainda utilizei o padrão de Singleton para manter uma única instância de Post para ajudar durante o desenvolvimento ( atualização e reload do ts-node-dev )
+
+
+
+Para mais dúvidas estou disponível nesses canais abaixo:
 
 - [Linkedin][linkedin]
 - [Github][github]
